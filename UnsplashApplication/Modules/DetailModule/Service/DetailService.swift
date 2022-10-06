@@ -38,7 +38,7 @@ class DetailService: DetailServiceProtocol {
                     case .success(let data):
                         guard let data = data else { return }
                         guard let image = UIImage(data: data) else { return }
-                        self?.downloadIsFinished?(DetailInfo(photoImage: image, date: json["created_at"].stringValue, location: json["location"]["country"].stringValue))
+                        self?.downloadIsFinished?(DetailInfo(photoImage: image, date: json["created_at"].stringValue, location: json["location"]["country"].stringValue, downloadsCount: json["downloads"].stringValue))
                     case .failure(let error):
                         print(error)
                     }

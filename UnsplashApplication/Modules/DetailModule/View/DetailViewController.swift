@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
         didSet {
             self.viewModel.detailInfoDidChange = { [weak self] viewModel in
                 guard let username = self?.photo.user.name else { return }
-                guard let downloadsCount = self?.photo.downloadsCount?.description else { return }
+                guard let downloadsCount = viewModel.detailInfo?.downloadsCount else { return }
                 guard let date = viewModel.detailInfo?.date else { return }
                 guard let location = viewModel.detailInfo?.location else { return }
                 guard let isMainScreen = self?.isMainScreen else { return }
